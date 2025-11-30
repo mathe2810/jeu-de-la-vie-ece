@@ -4,6 +4,7 @@
 *.o
 *.out
 *.log
+bin/
 
 # Editor/IDE
 .vscode/

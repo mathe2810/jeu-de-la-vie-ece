@@ -8,15 +8,18 @@
 CC = gcc
 CFLAGS = -O2 -Wall
 
+# Output directory
+BIN_DIR = bin
+
 # Sources
-MAIN_SRC = main.c
-MOTIFS_SRC = motifs_particuliers.c
-PERF_SRC = realtime_perf.c
+MAIN_SRC = src/main.c
+MOTIFS_SRC = src/motifs_particuliers.c
+PERF_SRC = src/realtime_perf.c
 
 # Binaries
-MAIN_BIN = projet.exe
-MOTIFS_BIN = motifs_particuliers.exe
-PERF_BIN = realtime_perf.exe
+MAIN_BIN = $(BIN_DIR)/projet.exe
+MOTIFS_BIN = $(BIN_DIR)/motifs_particuliers.exe
+PERF_BIN = $(BIN_DIR)/realtime_perf.exe
 
 .PHONY: all clean
 
@@ -24,13 +27,16 @@ all: $(MOTIFS_BIN) $(PERF_BIN)
 	@echo Build complete.
 
 $(MOTIFS_BIN): $(MOTIFS_SRC)
+	@mkdir -p $(BIN_DIR)
 	$(CC) $(CFLAGS) $^ -o $@
 
 $(PERF_BIN): $(PERF_SRC)
+	@mkdir -p $(BIN_DIR)
 	$(CC) $(CFLAGS) $^ -o $@
 
 # Main program (optional, kept here for completeness)
 $(MAIN_BIN): $(MAIN_SRC)
+	@mkdir -p $(BIN_DIR)
 	$(CC) $(CFLAGS) $^ -o $@
 
 clean:
