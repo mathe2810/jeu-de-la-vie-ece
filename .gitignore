@@ -1,0 +1,18 @@
+# Build artifacts
+*.exe
+*.obj
+*.o
+*.out
+*.log
+
+# Editor/IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Generated patterns/results
+result_*.txt
